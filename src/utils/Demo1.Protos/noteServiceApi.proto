@@ -1,0 +1,20 @@
+syntax = "proto3";
+option csharp_namespace = "Demo1.Protos";
+package noteServiceApi;
+
+service NoteServiceApi{
+	rpc GetAllNotesGrpcService (GetAllNotesRequest) returns (GetAllNotesResponse);
+}
+
+message GetAllNotesRequest{
+}
+
+message GetAllNotesResponse{
+	repeated GetAllNotes getAllNotes = 1;
+}
+message GetAllNotes{
+	string title = 1;
+	string description = 2;
+	string backgroundColorHex = 3;
+	string status = 4;
+}

@@ -1,4 +1,5 @@
 using NoteService.Application.Models;
+using NoteService.Application.Registration;
 using NoteService.Persistence.Registration;
 using NoteService.Persistence.Seeds;
 
@@ -25,7 +26,7 @@ var appSettings = new AppSettings();
 configuration.Bind(nameof(AppSettings), appSettings);
 
 builder.Services.AddSingleton(appSettings);
-
+builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices().AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

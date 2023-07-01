@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo1.Helper.Services.GrpcServiceClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace NoteService.Application.Models
             DatabaseConnectionString= String.Empty;
         }
         public string DatabaseConnectionString { get; set; }
+        public bool IsSwaggerActive { get; set; }
+        public GrpcServiceSettings GrpcServiceSettings { get; set; }
     }
 }

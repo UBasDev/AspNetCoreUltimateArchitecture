@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\_utils\Demo1.Helper\Demo1.Helper.csproj" />
     <ProjectReference Include="..\..\Core\UserService.Application\UserService.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\UserService.Infrastructure\UserService.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\UserService.Persistence\UserService.Persistence.csproj" />

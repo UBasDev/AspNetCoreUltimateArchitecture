@@ -37,19 +37,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5C37CB4D-B0B4-4F40-9E86-92111F1C698C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Api", "src\NoteService\Presentation\NoteService.Api\NoteService.Api.csproj", "{8683AB74-2DDE-44AC-A3C4-F813950934A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteService.Api", "src\NoteService\Presentation\NoteService.Api\NoteService.Api.csproj", "{8683AB74-2DDE-44AC-A3C4-F813950934A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_utils", "_utils", "{E8452BD1-9FC0-41C4-985A-A6D6598DFE02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1.Data", "src\_utils\Demo1.Data\Demo1.Data.csproj", "{FA15116D-DFA4-4D3A-BE6C-0803DD1B4703}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo1.Data", "src\_utils\Demo1.Data\Demo1.Data.csproj", "{FA15116D-DFA4-4D3A-BE6C-0803DD1B4703}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Application", "src\NoteService\Core\NoteService.Application\NoteService.Application.csproj", "{27B5AC69-DF46-45B0-B565-D22790293B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteService.Application", "src\NoteService\Core\NoteService.Application\NoteService.Application.csproj", "{27B5AC69-DF46-45B0-B565-D22790293B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Domain", "src\NoteService\Core\NoteService.Domain\NoteService.Domain.csproj", "{8109D3DB-3179-4260-93EA-F141994C3021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteService.Domain", "src\NoteService\Core\NoteService.Domain\NoteService.Domain.csproj", "{8109D3DB-3179-4260-93EA-F141994C3021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Infrastructure", "src\NoteService\Infrastructure\NoteService.Infrastructure\NoteService.Infrastructure.csproj", "{8ACAB415-5D4C-46C4-BEDE-58A294A7BF7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteService.Infrastructure", "src\NoteService\Infrastructure\NoteService.Infrastructure\NoteService.Infrastructure.csproj", "{8ACAB415-5D4C-46C4-BEDE-58A294A7BF7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Persistence", "src\NoteService\Infrastructure\NoteService.Persistence\NoteService.Persistence.csproj", "{6702F8AB-6DE8-4860-AFFD-F08ECE78538E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteService.Persistence", "src\NoteService\Infrastructure\NoteService.Persistence\NoteService.Persistence.csproj", "{6702F8AB-6DE8-4860-AFFD-F08ECE78538E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1.Protos", "src\utils\Demo1.Protos\Demo1.Protos.csproj", "{DE5FF358-FCE5-4D29-9718-02FAB461FBD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteService.Grpc", "src\NoteService\Infrastructure\NoteService.Grpc\NoteService.Grpc.csproj", "{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1.Helper", "src\_utils\Demo1.Helper\Demo1.Helper.csproj", "{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +111,18 @@ Global
 		{6702F8AB-6DE8-4860-AFFD-F08ECE78538E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6702F8AB-6DE8-4860-AFFD-F08ECE78538E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6702F8AB-6DE8-4860-AFFD-F08ECE78538E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5FF358-FCE5-4D29-9718-02FAB461FBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5FF358-FCE5-4D29-9718-02FAB461FBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5FF358-FCE5-4D29-9718-02FAB461FBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5FF358-FCE5-4D29-9718-02FAB461FBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +151,9 @@ Global
 		{8109D3DB-3179-4260-93EA-F141994C3021} = {45F9FEEE-7224-4CF5-A0FC-97A8D5015EA0}
 		{8ACAB415-5D4C-46C4-BEDE-58A294A7BF7D} = {96127101-C0F9-4583-ACAD-64BB3AE2AC85}
 		{6702F8AB-6DE8-4860-AFFD-F08ECE78538E} = {96127101-C0F9-4583-ACAD-64BB3AE2AC85}
+		{DE5FF358-FCE5-4D29-9718-02FAB461FBD8} = {E8452BD1-9FC0-41C4-985A-A6D6598DFE02}
+		{9DFCC668-E8C6-4CCA-89B8-2DDFFF5E97CB} = {96127101-C0F9-4583-ACAD-64BB3AE2AC85}
+		{AB8A2E25-69C8-49A7-B4A6-AF2A8E2E849D} = {E8452BD1-9FC0-41C4-985A-A6D6598DFE02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CB26481-F6B7-4942-BDED-3AC43A6E5AE5}

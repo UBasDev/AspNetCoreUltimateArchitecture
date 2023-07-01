@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NoteService.Application.Features.Commands.Note.CreateNote;
 
 namespace NoteService.Api.Controllers
 {
@@ -7,10 +9,16 @@ namespace NoteService.Api.Controllers
     [ApiController]
     public class NotesController : ControllerBase
     {
-        [HttpGet("[action]")]
-        public IActionResult Test1()
+        private readonly IMediator _mediator;
+        public NotesController(IMediator mediator)
         {
-            return Ok();
+            _mediator = mediator;
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateSingleNote(CreateNoteCommandRequest createNoteCommandRequest)
+        {
+            CreateNoteCommandResponse response = await _mediator.Send(createNoteCommandRequest);
+            return response.IsSuccesfull ? Ok(response) : BadRequest(response);
         }
     }
 }

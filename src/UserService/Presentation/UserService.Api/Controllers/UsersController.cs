@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Demo1.Helper.Services.GrpcServiceClient;
+using Demo1.Protos;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,11 +16,23 @@ namespace UserService.Api.Controllers
         private readonly AppSettings _appSettings;
         private readonly IMediator _mediator;
         private readonly ILogger<UsersController> _logger;
-        public UsersController(AppSettings appSettings, IMediator mediator, ILogger<UsersController> logger) { 
-            _appSettings= appSettings;
+        private readonly IGrpcServiceClientFactory _grpcServiceClientFactory;
+        public UsersController(AppSettings appSettings, IMediator mediator, ILogger<UsersController> logger, IGrpcServiceClientFactory grpcServiceClientFactory)
+        {
+            _appSettings = appSettings;
             _mediator = mediator;
             _logger = logger;
+            _grpcServiceClientFactory = grpcServiceClientFactory;
         }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test1()
+        {
+            var noteApiGrpcServiceClient = _grpcServiceClientFactory.CreateNoteApiGrpcServiceClient();
+            var responseFromNoteGrpcService = await noteApiGrpcServiceClient.GetAllNotesGrpcServiceAsync(new GetAllNotesRequest());
+            return Ok(responseFromNoteGrpcService);
+        }
+
         /*
 
         [HttpGet("[action]")]

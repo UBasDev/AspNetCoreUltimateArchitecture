@@ -1,3 +1,4 @@
+using Demo1.Helper.Services.GrpcServiceClient;
 using UserService.Application.Models;
 using UserService.Application.Registration;
 using UserService.Persistence.Registration;
@@ -26,6 +27,10 @@ configuration.Bind(nameof(AppSettings), appSettings);
 builder.Services.AddSingleton(appSettings);
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(configuration).AddControllers();
+#region ForGrpc
+builder.Services.AddSingleton(appSettings.GrpcServiceSettings); //AppSettings içerisinde tanýmladýðýmýz "GrpcServiceSettings" objectini de servise ekledik çünkü grpc servisinin hangi portta vs çalýþacaðýný bilmemiz gerekiyor
+builder.Services.AddSingleton<IGrpcServiceClientFactory, GrpcServiceClientFactory>(); //Registration etmemiz gerekiyor çünkü bu "GrpcServiceClientFactory" kullanarak "noteApiGrpcServiceClient.FirstGrpcServiceAsync" grpc servisini çaðýracaðýz
+#endregion
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
