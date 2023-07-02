@@ -1,5 +1,7 @@
+using Demo1.Helper.Exceptions;
 using NoteService.Application.Models;
 using NoteService.Application.Registration;
+using NoteService.Infrastructure.Registration;
 using NoteService.Persistence.Registration;
 using NoteService.Persistence.Seeds;
 
@@ -27,7 +29,7 @@ configuration.Bind(nameof(AppSettings), appSettings);
 
 builder.Services.AddSingleton(appSettings);
 builder.Services.AddApplicationServices();
-builder.Services.AddPersistenceServices().AddControllers();
+builder.Services.AddPersistenceServices().AddInfrastructureServices(configuration).AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -42,9 +44,10 @@ if (app.Environment.IsDevelopment())
 
 await app.UsePersistence();
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
 await app.Services.InitializeDatabase();
 app.Run();

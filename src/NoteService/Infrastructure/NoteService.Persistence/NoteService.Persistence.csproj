@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\_utils\Demo1.Helper\Demo1.Helper.csproj" />
     <ProjectReference Include="..\..\Core\NoteService.Application\NoteService.Application.csproj" />
   </ItemGroup>
 

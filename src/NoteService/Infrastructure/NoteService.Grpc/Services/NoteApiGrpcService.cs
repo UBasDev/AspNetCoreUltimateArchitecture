@@ -18,7 +18,7 @@ namespace NoteService.Grpc.Services
         public override async Task<GetAllNotesResponse> GetAllNotesGrpcService(GetAllNotesRequest request, ServerCallContext context)
         {
             var response = new GetAllNotesResponse();
-            var allReceivedNotes = await _unitOfWork.NoteRepository.GetAllAsync();
+            var allReceivedNotes = await _unitOfWork.NoteRepository.GetAllAsNoTrackingAsync();
             
             foreach (var currentNote in allReceivedNotes)
             {

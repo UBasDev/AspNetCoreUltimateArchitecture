@@ -26,7 +26,7 @@ namespace UserService.Api.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> Test1()
+        public async Task<IActionResult> GrpcTest1()
         {
             var noteApiGrpcServiceClient = _grpcServiceClientFactory.CreateNoteApiGrpcServiceClient();
             var responseFromNoteGrpcService = await noteApiGrpcServiceClient.GetAllNotesGrpcServiceAsync(new GetAllNotesRequest());

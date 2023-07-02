@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Demo1.Data.Enums;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,15 @@ namespace UserService.Domain.Entities.RoleEntity
     {
         public Role()
         {
-            Name = String.Empty;
+            Name = AuthRole.EM;
             Value= String.Empty;
             Code = 0;
             Screens = new HashSet<Screen>();
             Users= new HashSet<User>();
         }
-        public string Name { get; set; }
+        public AuthRole Name { get; set; }
         public string Value { get; set; }
-        public int Code { get; set; }
+        public AuthRoleCode Code { get; set; }
         public ICollection<Screen>? Screens { get; set; }
         public ICollection<User>? Users { get; set; }
     }

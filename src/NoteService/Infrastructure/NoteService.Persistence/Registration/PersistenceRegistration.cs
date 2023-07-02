@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Demo1.Helper.Exceptions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NoteService.Application.Interfaces.Repositories;
@@ -18,6 +19,7 @@ namespace NoteService.Persistence.Registration
         {
             services.AddDbContext<ApplicationDbContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ExceptionMiddleware>();
             return services;
         }
         public static async Task UsePersistence(this IApplicationBuilder app)
