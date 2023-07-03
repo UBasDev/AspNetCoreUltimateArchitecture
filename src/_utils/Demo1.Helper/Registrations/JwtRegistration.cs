@@ -33,7 +33,6 @@ namespace Demo1.Helper.Registrations
                     jwtSecurityTokenHandler.MapInboundClaims = false;
                 o.TokenValidationParameters.RoleClaimType = JwtClaimTypes.Role;
                 o.TokenValidationParameters.NameClaimType = JwtClaimTypes.PreferredUserName;
-
                 o.TokenValidationParameters.ValidateAudience = jwtSettings.ValidateAudience;
                 o.TokenValidationParameters.ValidIssuer = jwtSettings.ValidIssuer;
                 o.TokenValidationParameters.ValidAudience = jwtSettings.ValidAudience;

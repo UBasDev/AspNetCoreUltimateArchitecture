@@ -1,4 +1,5 @@
 using Demo1.Helper.Services.GrpcServiceClient;
+using Microsoft.OpenApi.Models;
 using UserService.Application.Models;
 using UserService.Application.Registration;
 using UserService.Persistence.Registration;
@@ -34,7 +35,6 @@ builder.Services.AddSingleton<IGrpcServiceClientFactory, GrpcServiceClientFactor
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 var app = builder.Build();
 

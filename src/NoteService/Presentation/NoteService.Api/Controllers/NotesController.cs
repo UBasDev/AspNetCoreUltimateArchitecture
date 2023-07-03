@@ -6,17 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using NoteService.Application.Features.Commands.Note.CreateNote;
 using NoteService.Application.Features.Queries.Note.GetAllNotes;
 using Demo1.Data.Enums;
+using Microsoft.AspNetCore.Authorization;
+using IdentityModel;
+using static System.Net.WebRequestMethods;
+using System.Security.Claims;
+using Demo1.Helper.Models;
+using System.IdentityModel.Tokens.Jwt;
+using Demo1.Helper.Helpers;
 
 namespace NoteService.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class NotesController : ControllerBase
+    public class NotesController : BaseController
     {
         private readonly IMediator _mediator;
-        public NotesController(IMediator mediator)
+        private readonly JwtSettings _jwtSettings;
+        public NotesController(IMediator mediator, JwtSettings jwtSettings)
         {
             _mediator = mediator;
+            _jwtSettings = jwtSettings;
         }
         [HttpPost("[action]")]
         public async Task<IActionResult> CreateSingleNote(CreateNoteCommandRequest createNoteCommandRequest)
@@ -40,11 +47,49 @@ namespace NoteService.Api.Controllers
             });
             return Ok();
         }
+
         [HttpGet("[action]")]
-        [Authorized(AuthRole.CEO)]
-        public async Task<IActionResult> AuthorizedTest()
+        [Authorized(AuthRole.CEO, AuthRole.AN)]
+        public async Task<IActionResult> AuthorizeTest()
+        {
+            return Ok(RequestedUser);
+        }
+
+        [HttpGet("[action]")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AllowedAuthorizeTest()
         {
             return Ok();
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GenerateToken()
+        {
+            var tokenExpireDate = new TimeSpan(180, 0, 0, 0, 0);
+            var claims = new List<Claim>
+        {
+            new(JwtClaimTypes.Id, "213129"),
+            new(JwtClaimTypes.Email, "email1@gmail.com"),
+            new(JwtClaimTypes.PreferredUserName, "Ayhan Pekmez"),
+            new(JwtClaimTypes.Role, "CEO"),
+                new("Phone", "5326254522"),
+        };
+            var token = JwtHelper.GetJwtToken(_jwtSettings, tokenExpireDate, claims);
+            return Ok(token);
+        }
+        private string TokenGenerator()
+        {
+            var tokenExpireDate = new TimeSpan(180, 0, 0, 0, 0);
+            var claims = new List<Claim>
+        {
+            new(JwtClaimTypes.Id, "213129"),
+            new(JwtClaimTypes.Email, "email1@gmail.com"),
+            new(JwtClaimTypes.PreferredUserName, "Ayhan Pekmez"),
+            new(JwtClaimTypes.Role, "CEO"),
+                new("Phone", "5326254522"),
+        };
+            var token = JwtHelper.GetJwtToken(_jwtSettings, tokenExpireDate, claims);
+            return token;
         }
     }
 }

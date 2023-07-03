@@ -13,7 +13,7 @@ namespace Demo1.Helper.Attributes
     {
         public AuthorizedAttribute(params AuthRole[] roles)
         {
-            if (roles.Length > 0) Roles = string.Join(",", roles.Select(r => Enum.GetName(r.GetType(), r)));
+            if (roles.Length > 0) Roles = String.Join(",", roles.Select(r => Enum.GetName(r.GetType(), r)));
         }
     }
 }

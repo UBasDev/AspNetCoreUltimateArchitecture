@@ -1,4 +1,5 @@
 ﻿using Demo1.Helper.Exceptions;
+using Demo1.Helper.Registrations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ namespace NoteService.Persistence.Registration
             services.AddDbContext<ApplicationDbContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ExceptionMiddleware>();
+            services.AddSwagger("Note Service Api");
             return services;
         }
         public static async Task UsePersistence(this IApplicationBuilder app)

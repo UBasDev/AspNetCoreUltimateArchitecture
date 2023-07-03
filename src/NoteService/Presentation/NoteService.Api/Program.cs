@@ -1,4 +1,5 @@
 using Demo1.Helper.Exceptions;
+using Microsoft.OpenApi.Models;
 using NoteService.Application.Models;
 using NoteService.Application.Registration;
 using NoteService.Infrastructure.Registration;
@@ -31,7 +32,6 @@ builder.Services.AddSingleton(appSettings);
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices().AddInfrastructureServices(configuration).AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo1.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Demo1.Helper.Models
         }
         public string Id { get; set; }
         public string FullName { get; set; }
+        public AuthRole Role { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
     }
